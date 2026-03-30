@@ -48,6 +48,8 @@ export function Header() {
               width={48}
               height={48}
               className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform group-hover:scale-105"
+              priority
+              loading="eager"
             />
             <div className="hidden sm:block">
               <p className="font-serif text-lg md:text-xl font-medium tracking-wide text-white">
