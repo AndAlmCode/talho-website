@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
 export function Hero() {
@@ -45,23 +44,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Logo */}
-          <div 
-            className="mb-8 animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <Image
-              src="/logo.jpeg"
-              alt="Talho do André - Corte com Alma"
-              width={200}
-              height={200}
-              className="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto object-contain"
-              priority
-              loading="eager"
-            />
-          </div>
-
-          {/* Main Title */}
+{/* Main Title */}
           <h1 
             className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-4 animate-fade-in-up tracking-wide"
             style={{ animationDelay: "0.4s" }}
