@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -30,7 +31,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm py-3"
+          ? "bg-background/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
           : "bg-transparent py-6"
       )}
     >
@@ -41,15 +42,19 @@ export function Header() {
             href="#inicio"
             className="flex items-center gap-3 group"
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-primary-foreground font-serif text-lg md:text-xl font-bold">TC</span>
-            </div>
+            <Image
+              src="/logo.jpeg"
+              alt="Talho do André - Corte com Alma"
+              width={48}
+              height={48}
+              className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform group-hover:scale-105"
+            />
             <div className="hidden sm:block">
-              <p className={cn(
-                "font-serif text-lg md:text-xl font-semibold tracking-wide transition-colors",
-                isScrolled ? "text-foreground" : "text-foreground"
-              )}>
-                Talho da Charneca
+              <p className="font-serif text-lg md:text-xl font-medium tracking-wide text-white">
+                Talho do André
+              </p>
+              <p className="text-xs text-primary tracking-[0.2em] uppercase">
+                Corte com Alma
               </p>
             </div>
           </Link>
@@ -60,10 +65,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={cn(
-                    "text-sm uppercase tracking-wider font-medium transition-colors hover:text-primary relative group",
-                    isScrolled ? "text-foreground" : "text-foreground"
-                  )}
+                  className="text-sm uppercase tracking-wider font-medium text-white/80 hover:text-primary transition-colors relative group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -75,7 +77,7 @@ export function Header() {
           {/* CTA Button */}
           <Link
             href="#contacto"
-            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 hover:shadow-lg"
+            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium uppercase tracking-wider hover:bg-primary/80 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             Encomendar
           </Link>
@@ -87,9 +89,9 @@ export function Header() {
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </nav>
@@ -101,14 +103,14 @@ export function Header() {
             isMobileMenuOpen ? "max-h-[400px] opacity-100 mt-6" : "max-h-0 opacity-0"
           )}
         >
-          <div className="bg-card rounded-lg shadow-lg p-6">
+          <div className="bg-card border border-border/50 rounded-sm p-6">
             <ul className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-foreground text-lg font-medium py-2 hover:text-primary transition-colors"
+                    className="block text-white text-lg font-medium py-2 hover:text-primary transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -118,7 +120,7 @@ export function Header() {
             <Link
               href="#contacto"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-6 w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-medium uppercase tracking-wider hover:bg-primary/90 transition-colors"
+              className="mt-6 w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-medium uppercase tracking-wider hover:bg-primary/80 transition-colors"
             >
               Encomendar
             </Link>

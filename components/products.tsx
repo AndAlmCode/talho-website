@@ -60,27 +60,28 @@ export function Products() {
     <section
       id="produtos"
       ref={sectionRef}
-      className="py-20 md:py-32 bg-secondary"
+      className="py-20 md:py-32 bg-background"
     >
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span 
-            className={`inline-block text-primary text-sm uppercase tracking-widest mb-4 transition-all duration-700 ${
+            className={`inline-block text-primary text-sm uppercase tracking-[0.2em] mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Os Nossos Produtos
           </span>
           <h2 
-            className={`font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 text-balance transition-all duration-700 delay-100 ${
+            className={`font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 text-balance transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Seleção Premium de Carnes
           </h2>
+          <div className="w-16 h-0.5 bg-primary mx-auto mb-6" />
           <p 
-            className={`text-muted-foreground max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
+            className={`text-white/60 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -94,7 +95,7 @@ export function Products() {
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`group relative bg-card p-8 lg:p-10 transition-all duration-700 hover:shadow-xl ${
+              className={`group relative bg-card border border-border/50 p-8 lg:p-10 transition-all duration-700 hover:border-primary/50 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               } ${product.featured ? "md:col-span-2" : ""}`}
               style={{ transitionDelay: `${300 + index * 100}ms` }}
@@ -109,8 +110,8 @@ export function Products() {
               <div className={`${product.featured ? "md:flex md:items-center md:gap-12" : ""}`}>
                 {/* Product Icon/Visual */}
                 <div className={`mb-6 ${product.featured ? "md:mb-0 md:w-1/3" : ""}`}>
-                  <div className={`aspect-square bg-muted rounded-sm flex items-center justify-center ${product.featured ? "max-w-[200px]" : "max-w-[120px]"}`}>
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className={`aspect-square bg-background border border-border/30 flex items-center justify-center ${product.featured ? "max-w-[200px]" : "max-w-[120px]"}`}>
+                    <div className="w-16 h-16 bg-primary/20 flex items-center justify-center">
                       <span className="font-serif text-2xl text-primary">{product.name.charAt(0)}</span>
                     </div>
                   </div>
@@ -118,10 +119,10 @@ export function Products() {
 
                 {/* Product Info */}
                 <div className={product.featured ? "md:flex-1" : ""}>
-                  <h3 className="font-serif text-2xl lg:text-3xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="font-serif text-2xl lg:text-3xl text-white mb-3 group-hover:text-primary transition-colors">
                     {product.name}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-white/60 mb-6 leading-relaxed">
                     {product.description}
                   </p>
 
@@ -130,7 +131,7 @@ export function Products() {
                     {product.items.map((item) => (
                       <span
                         key={item}
-                        className="px-3 py-1 bg-secondary text-sm text-muted-foreground border border-border"
+                        className="px-3 py-1 bg-background text-sm text-white/70 border border-border/50"
                       >
                         {item}
                       </span>
@@ -149,7 +150,7 @@ export function Products() {
               </div>
 
               {/* Hover Border Effect */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
             </div>
           ))}
         </div>
@@ -160,12 +161,12 @@ export function Products() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <p className="text-muted-foreground mb-6">
+          <p className="text-white/50 mb-6">
             Não encontrou o que procura? Temos muito mais em loja.
           </p>
           <Link
             href="#contacto"
-            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-medium uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 hover:shadow-lg min-h-[44px]"
+            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-medium uppercase tracking-wider hover:bg-primary/80 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 min-h-[44px]"
           >
             Fale Connosco
           </Link>
